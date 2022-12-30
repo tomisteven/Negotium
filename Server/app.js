@@ -27,6 +27,8 @@ app.use(`/auth`, authRoutes);
 app.use(`/`, userRoutes);
 app.use(`/client`, clientsRoutes);
 
-//s qsqqssqsqsqq
+
+//Viendo si se puede ver en la otra pc
+
 
 module.exports = app;
