@@ -26,10 +26,6 @@ app.use(express.static("./uploads"));
 app.use(`/auth`, authRoutes);
 app.use(`/`, userRoutes);
 app.use(`/client`, clientsRoutes);
-/* app.use(`/api/${API_VERSION}`, menuRoutes);
-app.use(`/api/${API_VERSION}`, courseRoutes);
-app.use(`/api/${API_VERSION}`, postRoutes);
-app.use(`/api/${API_VERSION}`, newsletterRouter); */
 
 //s qsqqssqsqsqq
 
