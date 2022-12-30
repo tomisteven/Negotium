@@ -167,10 +167,15 @@ const updateUsernamePassword = async (req, res) => {
     const client = response.clientes.find(client => client._id == client_id);
     if(client != null) {
         //DEBO BUSCAR QUE EN TODO EL ARREGLO DE LOS CLIENTES EL USUARIO SEA DIFERENTE AL RESTO
-        client.username = req.body.username
-        client.password = req.body.password
-        await response.save();
-        res.status(200).json({message: "Cliente actualizado", client: client});
+        const us = response.clientes.find(client => client.username == req.body.username);
+        if(us != null) res.status(404).json({message: "Ya existe un cliente con ese username"});
+        else {
+            client.username = req.body.username;
+            client.password = req.body.password;
+            await response.save();
+            res.status(200).json({message: "Cliente actualizado", client: client});
+        }
+        /* PROBARLO */
     }
     else res.status(404).json({message: "No hay cliente con ese id"});
 }
