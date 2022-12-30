@@ -14,10 +14,22 @@ const UserSchema = new Schema({
     avatar: String,
     clientes: [
         {
+        username: String,
+        password: {
+            type: String,
+            default: "123456"
+        },
         nombre: String,
+        dni: {
+            type: String,
+            unique: true
+        },
         apellido: String,
         telefono: String,
-        email: String,
+        email: {
+            type: String,
+            unique: true,
+        },
         direccion: String,
         fecha: {
             type: Date,
@@ -32,17 +44,18 @@ const UserSchema = new Schema({
             default: 0
         },
         serviciosadquiridos: [{
-            type: Schema.ObjectId,
             nombre: String,
             precio: Number,
             cantidad: Number,
-            total: Number,
-            fecha: Date
+            fecha: {
+                type: Date,
+                default: Date.now()
+            }
         }],
         nextServices: [{
             service: String,
             fecha : {
-                type: Date,
+                type: String || Date,
                 default: Date.now()
             },
         }],

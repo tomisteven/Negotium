@@ -23,12 +23,12 @@ app.use(express.static("./uploads"));
 
 
 //rutas
-app.use(`/auth`, authRoutes);
-app.use(`/`, userRoutes);
-app.use(`/client`, clientsRoutes);
+app.use(`/auth`, authRoutes); //rutas de autenticacion para registro y login
+app.use(`/`, userRoutes);   //rutas de usuario
+app.use(`/client`, clientsRoutes); //rutas de clientes del usuario
 
 
-//Viendo si se puede ver en la otra pc
+
 
 
 module.exports = app;
