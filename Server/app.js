@@ -31,6 +31,6 @@ app.use(`/api/${API_VERSION}`, courseRoutes);
 app.use(`/api/${API_VERSION}`, postRoutes);
 app.use(`/api/${API_VERSION}`, newsletterRouter); */
 
-
+//s qsqqssqsqsqq
 
 module.exports = app;
