@@ -222,8 +222,15 @@ const updateUsernamePassword = async (req, res) => {
     else res.status(404).json({message: "No hay cliente con ese id"});
 }
 
+const urlLoginClient = async (req,res) => {
+    const {user_id} = req.user
+    const url = "http://localhost:3000/client/login/" + user_id;
+    res.status(200).json({message: "URL", url: url});
+}
+
 
 export {
+    urlLoginClient,
     createClient,
     getAllClients,
     getClient,

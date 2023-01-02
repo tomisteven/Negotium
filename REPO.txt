@@ -6,3 +6,12 @@ https://github.com/tomisteven/Negotium.git
 //	"apellido": "Steven",
 //	"direccion": "Av reybaud 1254",
 //	"telefono":"12345678"
+
+
+//URL DEL USER TOMAS
+{
+	"message": "URL",
+	"url": "http://localhost:3000/client/login/63ac63ce80f0170ac43454fa"
+}
+
+//URL DEL USER NAYME

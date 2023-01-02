@@ -12,7 +12,11 @@ const UserSchema = new Schema({
     role : String,
     membresia: Boolean,
     avatar: String,
-
+    url_login: {
+        type: String,
+        unique: true,
+        default: ""
+    },
     clientes: [
         {
         username: String,

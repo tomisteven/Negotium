@@ -8,6 +8,7 @@ async function getMe(req, res) {
     const {user_id} = req.user;
     const response = await User.findById(user_id)
     if (response) {
+        response.url_login = "http://localhost:3000/login"+user_id
         res.status(200).json(response);
     }
     else {
