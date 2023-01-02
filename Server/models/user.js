@@ -12,6 +12,7 @@ const UserSchema = new Schema({
     role : String,
     membresia: Boolean,
     avatar: String,
+
     clientes: [
         {
         username: String,
@@ -43,6 +44,10 @@ const UserSchema = new Schema({
             type: Number,
             default: 0
         },
+        gastoTotal: {
+            type: Number,
+            default: 0
+        },
         serviciosadquiridos: [{
             nombre: String,
             precio: Number,
@@ -58,6 +63,15 @@ const UserSchema = new Schema({
                 type: String || Date,
                 default: Date.now()
             },
+            completed: {
+                type: Boolean,
+                default: false
+            },
+            hora: {
+                type: String,
+                default: "00:00"
+
+            }
         }],
     }],
     servicios: [{
@@ -94,7 +108,6 @@ const UserSchema = new Schema({
         fecha: Date
     }],
 });
-
 
 //exportar
 export default mongoose.model('User', UserSchema);

@@ -9,9 +9,18 @@ import {
 const createClient = async (req, res) => {
     const {user_id} = req.user;
     const response = await User.findById(user_id);
+    if(!req.body.dni){
+        res.status(400).json({message: "El dni es obligatorio"});
+    }
+    else{
+        const client = response.clientes.find(client => client.dni == req.body.dni);
+        if(client){
+            res.status(400).json({message: "El cliente con ese DNI ya existe"});
+        }
+    }
     response.clientes.push(req.body);
     await response.save();
-    res.status(200).json({message: "Cliente creado", client: response.clientes});
+    res.status(200).json({message: "Cliente creado", client: req.body});
 
 };
 
@@ -32,18 +41,21 @@ const getAllClients = async (req, res) => {
 const getClientConDeuda = async (req, res) => {
     const {user_id} = req.user;
     const response = await User.findById(user_id);
+    if(!response) res.status(404).json({message: "No hay cliente con ese id"});
     const clientsConDeuda = response.clientes.filter(client => client.deuda == true);
-    if (clientsConDeuda != null && clientsConDeuda.length > 0) {
+     if (clientsConDeuda != null && clientsConDeuda.length > 0) {
         res.status(200).json(clientsConDeuda);
     }
     else {
         res.status(404).json({message: "No hay clientes con deudas"});
     }
+    console.log(clientsConDeuda);
 }
 
 const getClientSinDeuda = async (req, res) => {
     const {user_id} = req.user;
     const response = await User.findById(user_id);
+    if(!response) res.status(404).json({message: "No hay cliente con ese id"});
     const clientSinDeuda = response.clientes.filter(client => client.deuda == false);
     if(clientSinDeuda != null && clientSinDeuda.length > 0) res.status(200).json(clientSinDeuda);
     else res.status(404).json({message: "No hay clientes con deudas"});
@@ -55,6 +67,7 @@ const getServicesOfClient = async (req, res) => {
     const {user_id} = req.user;
     const response = await User.findById(user_id);
     const client = response.clientes.find(client => client._id == client_id);
+    if(!client) res.status(404).json({message: "No hay cliente con ese id"});
     const services = client.serviciosadquiridos;
     if(services != null && services.length > 0) res.status(200).json(services);
     else res.status(404).json({message: "No hay servicios para este cliente"});
@@ -73,6 +86,7 @@ const addServiceFuture = async (req, res) => {
     const client_id = req.params.id;
     const {user_id} = req.user;
     const response  = await User.findById(user_id);
+    if(!response) res.status(404).json({message: "No hay cliente con ese id"});
     const client = response.clientes.find(client => client._id == client_id);
     client.nextServices.push(req.body);
     await response.save();
@@ -84,7 +98,14 @@ const addService = async (req, res) => {
     const {user_id} = req.user;
     const response  = await User.findById(user_id);
     const client = response.clientes.find(client => client._id == client_id);
+    if(!client) res.status(404).json({message: "No hay cliente con ese id"});
     client.serviciosadquiridos.push(req.body);
+    if(!req.body.precio){
+        res.status(400).json({message: "El precio es obligatorio"});
+    }
+    else{
+        client.gastoTotal += req.body.precio;
+    }
     await response.save();
     res.status(200).json({message: "Servicio añadido", client: client});
 }
@@ -93,6 +114,7 @@ const updateClient = async (req, res) => {
     const client_id = req.params.id;
     const {user_id} = req.user;
     const response = await User.findById(user_id);
+    if(!response) res.status(404).json({message: "No hay cliente con ese id"});
     const client = response.clientes.find(client => client._id == client_id);
     if(client != null) {
         client.nombre = req.body.nombre || client.nombre;
@@ -101,15 +123,21 @@ const updateClient = async (req, res) => {
         client.email = req.body.email || client.email;
         client.deuda = req.body.deuda || client.deuda;
         client.deudaTotal = req.body.deudaTotal || client.deudaTotal;
+        client.dni = req.body.dni || client.dni;
+        client.direccion = req.body.direccion || client.direccion;
+        client.gastoTotal = req.body.gastoTotal || client.gastoTotal;
+        client.serviciosadquiridos = req.body.serviciosadquiridos || client.serviciosadquiridos;
         await response.save();
         res.status(200).json({message: "Cliente actualizado", client: client});
     }
+    else res.status(404).json({message: "No hay cliente con ese id"});
 }
 
 const deleteClient = async (req, res) => {
     const client_id = req.params.id;
     const {user_id} = req.user
     const response = await User.findById(user_id)
+    //if(!response) res.status(404).json({message: "No hay cliente con ese id"});
     const client = response.clientes.find(client => client._id == client_id);
     if(client != null) {
         response.clientes.remove(client);
@@ -123,6 +151,7 @@ const deleteServiceClient = async (req, res) => {
     const client_id = req.params.id;
     const service_id = req.params.service_id;
     const response = await User.findById(user_id);
+    if(!response) res.status(404).json({message: "No hay cliente con ese id"});
     const client = response.clientes.find(client => client._id == client_id);
     if(client){
         const service = client.serviciosadquiridos.find(service => service._id == service_id);
@@ -150,13 +179,26 @@ const deleteServiceFutureClient = async (req, res) => {
     }
 }
 
+const getServicesFuturesOfClient = async (req, res) => {
+    const {user_id} = req.user;
+    const client_id = req.params.id;
+    const response = await  User.findById(user_id)
+    if(!response) res.status(404).json({message: "No hay cliente con ese id"});
+    const client = response.clientes.find(client => client._id == client_id);
+    if(client != null) res.status(200).json(client.nextServices);
+    else res.status(404).json({message: "No hay cliente con ese id"});
+}
+
 //LOGIN CLIENT
 const loginClient = async (req, res) => {
-    const {user_id} = req.user;
+    //const {user_id} = req.user;
+    const {id} = req.params;
     const {username, password} = req.body;
-    const response = await User.findById(user_id);
-    const client = response.clientes.find(client => client.dni == username && client.password == password);
-    if(client != null) res.status(200).json({message: "Cliente encontrado", client: client});
+    const response = await User.findById(id);
+    //onsole.log(response);
+     const client = response.clientes.find(client => client.dni == username && client.password == password || client.username == username && client.password == password);
+     //console.log(client);
+     if(client != null) res.status(200).json({message: "Cliente encontrado", client: client});
     else res.status(404).json({message: "No hay cliente con ese username"});
 }
 
@@ -195,5 +237,6 @@ export {
     deleteServiceClient,
     deleteServiceFutureClient,
     updateUsernamePassword,
-    loginClient
+    loginClient,
+    getServicesFuturesOfClient
 }

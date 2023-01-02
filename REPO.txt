@@ -1,1 +1,8 @@
 https://github.com/tomisteven/Negotium.git
+
+
+//"nombre":"Tomas - Actualizado",
+//	"dni": "14114254",
+//	"apellido": "Steven",
+//	"direccion": "Av reybaud 1254",
+//	"telefono":"12345678"
