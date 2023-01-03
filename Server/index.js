@@ -6,7 +6,7 @@ const PORT_SERVER = 4020;
 //conectar base de datos moongo
 
 connect(`mongodb+srv://negotium:negotium@clusternegotium.12qqvly.mongodb.net/test`,
-   { useNewUrlParser: true},
+
     (err, res) => {
         if(err){
             throw err;
