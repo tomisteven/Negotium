@@ -12,11 +12,7 @@ const UserSchema = new Schema({
     role : String,
     membresia: Boolean,
     avatar: String,
-    url_login: {
-        type: String,
-        unique: true,
-        default: ""
-    },
+    url_login: String,
     clientes: [
         {
         username: String,
@@ -25,10 +21,7 @@ const UserSchema = new Schema({
             default: "123456"
         },
         nombre: String,
-        dni: {
-            type: String,
-            unique: true
-        },
+        dni:String,
         apellido: String,
         telefono: String,
         email: {
@@ -79,7 +72,6 @@ const UserSchema = new Schema({
         }],
     }],
     servicios: [{
-        type: Schema.ObjectId,
         nombre: String,
         precio: Number,
         cantidadVendidos: Number,
@@ -89,7 +81,6 @@ const UserSchema = new Schema({
         fecha: Date
     }],
     pdfs: [{
-        type: Schema.ObjectId,
         nombre: String,
         tipo: String,
         servicio: String,
@@ -97,14 +88,23 @@ const UserSchema = new Schema({
         fecha: Date
     }],
     recordatorios: [{
-        type: Schema.ObjectId,
         nombre: String,
         descripcion: String,
-        fecha: Date,
-        prioridad: String
+        fecha: {
+            type: Date,
+            default: Date.now()
+        },
+        fechaLimite: {
+            type: Date,
+            default: ""
+        },
+        prioridad: String,
+        completed: {
+            type: Boolean,
+            default: false
+        }
     }],
     proveedores: [{
-        type: Schema.ObjectId,
         nombre: String,
         telefono: String,
         email: String,

@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import {getAllClients, getClientConDeuda, getClientSinDeuda,createClient, getServicesOfClient, getClient, addServiceFuture,updateClient, deleteClient, deleteServiceClient, addService,deleteServiceFutureClient, updateUsernamePassword, loginClient, getServicesFuturesOfClient, urlLoginClient } from "../controllers/client.controller";
+import {getAllClients, getClientConDeuda, getClientSinDeuda,createClient, getServicesOfClient, getClient, addServiceFuture,updateClient, deleteClient, deleteServiceClient, addService,deleteServiceFutureClient, updateUsernamePassword, loginClient, getServicesFuturesOfClient, urlLoginClient, clientesConDeudaItem, clientesSinDeudaItem } from "../controllers/client.controller";
 import { asureAuth, tokenClient } from "../middlewares/authenticated";
 import multipart from "connect-multiparty";
 
@@ -25,6 +25,8 @@ router.get("/clientes/sinDeuda", [asureAuth], getClientSinDeuda); //http://local
 router.get("/servicios/:id", [asureAuth], getServicesOfClient); //http://localhost:3000/client/servicios/5f9f1b0b0b9b2c1e1c8c1b5
 router.get("/futureservices/:id", [asureAuth], getServicesFuturesOfClient); //http://localhost:3000/client/servicios/5f9f1b0b0b9b2c1e1c8c1b5
 router.get("/url/get", [asureAuth], urlLoginClient)
+router.get("/item/deudores", [asureAuth], clientesConDeudaItem)
+router.get("/item/nodeudores", [asureAuth], clientesSinDeudaItem)
 
 router.delete("/delete/:id", [asureAuth], deleteClient); //http://localhost:3000/client/delete/5f9f1b0b0b9b2c1e1c8c1b5a
 router.delete("/delete/service/:id/:service_id", [asureAuth], deleteServiceClient); //http://localhost:3000/client/delete/service/5f9f1b0b0b9b2c1e1c8c1b5a/5f9f1b0b0b9b2c1e1c8c1b5a

@@ -1,5 +1,5 @@
 import  {Router}  from "express";
-import {getMe, getAll, createUser, updateUser,deleteUser, getMembresiaActive, getMembresiaInactive
+import {getMe, getAll, updateUser,deleteUser, getMembresiaActive, getMembresiaInactive, createUser, createUrlLogin
 } from "../controllers/user.controller";
 import multipart from "connect-multiparty";
 import {asureAuth} from "../middlewares/authenticated";
@@ -14,5 +14,7 @@ router.get("/users/inactive", [asureAuth], getMembresiaInactive);
 router.post("/user", [asureAuth, md_upload], createUser);
 router.patch("/user/:id", [asureAuth, md_upload], updateUser);
 router.delete("/user/:id", [asureAuth], deleteUser);
+
+router.get("/createurl", asureAuth, createUrlLogin)
 
 export default router;

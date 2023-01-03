@@ -9,7 +9,7 @@ const register = (req, res) => {
         name: name,
         lastname: lastname,
         role: "user",
-        membresia: false,
+        membresia: false
     });
 
     if(!password || !repeatPassword){

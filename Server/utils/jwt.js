@@ -13,7 +13,7 @@ const jwt = require("jsonwebtoken");
     }
 
     return jwt.sign(payload, JWT_SECRET);
-} 
+}
 
 export const createRefreshToken = (user) => {
     const expToken = new Date();
@@ -28,7 +28,7 @@ export const createRefreshToken = (user) => {
     return jwt.sign(payload, JWT_SECRET);
 };
 
-  
+
 export const decodedToken = (token) => {
     return jwt.decode(token, JWT_SECRET, true);
 }

@@ -4,18 +4,21 @@ import { getFiles } from "../utils/images";
 import {createRefreshToken, createToken, decodedToken} from "../utils/jwt";
 
 async function getMe(req, res) {
+    const {user_id} = req.user;
+    const response = await User.findById(user_id)
+    if (response) res.status(200).json(response);
+    else res.status(404).json({message: "User not found"});
+}
+async function createUrlLogin(req, res) {
 
     const {user_id} = req.user;
     const response = await User.findById(user_id)
     if (response) {
-        response.url_login = "http://localhost:3000/login"+user_id
+        response.url_login = "http://localhost:3000/login/"+user_id
+        response.save();
         res.status(200).json(response);
     }
-    else {
-        res.status(404).json({message: "User not found"});
-    }
-
-
+    else  res.status(404).json({message: "No existe usuario"});
 }
 
 async function getAll (req, res) {
@@ -38,7 +41,7 @@ async function getMembresiaInactive(req, res){
 }
 
 
- const createUser = async (req, res) => {
+  const createUser = async (req, res) => {
     const {password} = req.body;
     //console.log(req.body);
     const salt = bcrypt.genSaltSync(10);
@@ -48,6 +51,7 @@ async function getMembresiaInactive(req, res){
         ...req.body,
         password: hash,
         active: true,
+        url_login: "http://localhost:3000/login/" + req.body._id
     });
     console.log(req.body);
     if(req.files.avatar){
@@ -136,11 +140,12 @@ const deleteUser = async (req, res) => {
 export {
     getMe,
     getAll,
-    createUser,
     updateUser,
     deleteUser,
     getMembresiaActive,
-    getMembresiaInactive
+    getMembresiaInactive,
+    createUser,
+    createUrlLogin
 }
 
 

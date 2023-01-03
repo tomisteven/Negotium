@@ -8,10 +8,31 @@ https://github.com/tomisteven/Negotium.git
 //	"telefono":"12345678"
 
 
-//URL DEL USER TOMAS
-{
-	"message": "URL",
-	"url": "http://localhost:3000/client/login/63ac63ce80f0170ac43454fa"
-}
+if(!password || !repeatPassword){
+        res.status(404).send({message: "Las contraseñas son obligatorias"});
+    }else{
+        if(password !== repeatPassword){
+            res.status(404).send({message: "Las contraseñas tienen que ser iguales"});
+        }else{
+            bcrypt.hash(password, null, null, (err, hash) => {
+                if(err){
+                    res.status(500).send({message: "Error al encriptar la contraseña"});
+                }else{
+                    user.password = hash;
+                    user.save((err, userStored) => {
+                        if(err){
+                            res.status(500).send({message: "Error de servidor"});
+                        }else{
+                            if(!userStored){
+                                res.status(404).send({message: "Error al crear el usuario"});
+                            }else{
+                                res.status(200).send({userStored});
+                            }
+                        }
+                    });
+                }
+            });
 
-//URL DEL USER NAYME
+
+        }
+        }

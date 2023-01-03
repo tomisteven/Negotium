@@ -52,6 +52,43 @@ const getClientConDeuda = async (req, res) => {
     console.log(clientsConDeuda);
 }
 
+const clientesConDeudaItem = async (req, res) => {
+    const {user_id} = req.user;
+    const estado = req.query.estado;
+
+    const response = await User.findById(user_id);
+    if(!response) res.status(404).json({message: "No hay cliente con ese id"});
+    const clientsItem = response.clientes.filter(client => client.deuda === false);
+    const items= []
+    clientsItem.forEach((item, index) => {
+        items.push(
+            item.nombre + " " + item.apellido,
+        )
+    })
+    if (items != null ) {
+        res.status(200).json(items);
+    }
+}
+const clientesSinDeudaItem = async (req, res) => {
+    const {user_id} = req.user;
+    const estado = req.query.estado;
+
+    const response = await User.findById(user_id);
+    if(!response) res.status(404).json({message: "No hay cliente con ese id"});
+    const clientsItem = response.clientes.filter(client => client.deuda === true);
+    const items= []
+    clientsItem.forEach((item, index) => {
+        items.push(
+            item.nombre + " " + item.apellido,
+        )
+    })
+    if (items != null ) {
+        res.status(200).json(items);
+    }
+}
+
+
+
 const getClientSinDeuda = async (req, res) => {
     const {user_id} = req.user;
     const response = await User.findById(user_id);
@@ -245,5 +282,7 @@ export {
     deleteServiceFutureClient,
     updateUsernamePassword,
     loginClient,
-    getServicesFuturesOfClient
+    getServicesFuturesOfClient,
+    clientesConDeudaItem,
+    clientesSinDeudaItem,
 }
