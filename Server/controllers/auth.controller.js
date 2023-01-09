@@ -11,8 +11,9 @@ const register = (req, res) => {
         role: "user",
         membresia: false
     });
-
-    if(!password || !repeatPassword){
+    user.save();
+    res.status(200).send({user});
+    /* if(!password || !repeatPassword){
         res.status(404).send({message: "Las contraseñas son obligatorias"});
     }else{
         if(password !== repeatPassword){
@@ -25,7 +26,8 @@ const register = (req, res) => {
                     user.password = hash;
                     user.save((err, userStored) => {
                         if(err){
-                            res.status(500).send({message: "Error de servidor"});
+                            console.log(err);
+                            res.status(500).send({message: err});
                         }else{
                             if(!userStored){
                                 res.status(404).send({message: "Error al crear el usuario"});
@@ -39,7 +41,7 @@ const register = (req, res) => {
 
 
         }
-        }
+        } */
     }
 
 const login = (req, res) => {

@@ -15,13 +15,13 @@ const UserSchema = new Schema({
     url_login: String,
     clientes: [
         {
+        dni: String,
         username: String,
         password: {
             type: String,
             default: "123456"
         },
         nombre: String,
-        dni:String,
         apellido: String,
         telefono: String,
         email: {

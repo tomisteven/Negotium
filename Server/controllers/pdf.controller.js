@@ -74,12 +74,7 @@ const deletePdf = async (req, res) => {
             console.log("Archivo eliminado")
         }
     })
-
-
-
-
     result ? res.status(200).json(result.pdfs) : res.status(404).json({message: "No es un id Valido"});
-
 }
 
 
