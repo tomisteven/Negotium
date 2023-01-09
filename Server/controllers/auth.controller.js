@@ -11,9 +11,8 @@ const register = (req, res) => {
         role: "user",
         membresia: false
     });
-    user.save();
-    res.status(200).send({user});
-    /* if(!password || !repeatPassword){
+
+     if(!password || !repeatPassword){
         res.status(404).send({message: "Las contraseñas son obligatorias"});
     }else{
         if(password !== repeatPassword){
@@ -38,11 +37,9 @@ const register = (req, res) => {
                     });
                 }
             });
-
-
         }
-        } */
-    }
+        } }
+
 
 const login = (req, res) => {
     const {email, password} = req.body;

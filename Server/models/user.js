@@ -6,7 +6,6 @@ const UserSchema = new Schema({
     lastname: String,
     email: {
         type: String,
-        unique: true,
     },
     password: String,
     role : String,
@@ -15,7 +14,6 @@ const UserSchema = new Schema({
     url_login: String,
     clientes: [
         {
-        dni: String,
         username: String,
         password: {
             type: String,
@@ -25,8 +23,7 @@ const UserSchema = new Schema({
         apellido: String,
         telefono: String,
         email: {
-            type: String,
-            unique: true,
+            type: String
         },
         direccion: String,
         fecha: {

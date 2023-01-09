@@ -9,26 +9,22 @@ import {
 const createClient = async (req, res) => {
     const {user_id} = req.user;
     const response = await User.findById(user_id);
-    if(!req.body.dni){
-        res.status(400).json({message: "El dni es obligatorio"});
-    }
-    else{
-        const client = response.clientes.find(client => client.dni == req.body.dni);
-        if(client){
-            res.status(400).json({message: "El cliente con ese DNI ya existe"});
-        }
-    }
-    response.clientes.push(req.body);
-    await response.save();
-    res.status(200).json({message: "Cliente creado", client: req.body});
 
+    const client = response.clientes.find(client => client.email == req.body.email);
+    if(client){
+        res.status(400).json({message: "El cliente con ese EMAIL ya existe"});
+    }else{
+        response.clientes.push(req.body);
+        await response.save();
+        res.status(200).json({message: "Cliente creado", client: req.body});
+    }
 };
 
 const getAllClients = async (req, res) => {
 
     const {user_id} = req.user;
     const response = await User.findById(user_id);
-    console.log(response);
+    //console.log(response);
      const clients = response.clientes
     if (clients != null && clients.length > 0) {
         res.status(200).json(clients);
@@ -174,8 +170,9 @@ const deleteClient = async (req, res) => {
     const client_id = req.params.id;
     const {user_id} = req.user
     const response = await User.findById(user_id)
-    //if(!response) res.status(404).json({message: "No hay cliente con ese id"});
-    const client = response.clientes.find(client => client._id == client_id);
+    console.log(response);
+    if(!response) res.status(404).json({message: "No hay cliente con ese id"});
+     const client = response.clientes.find(client => client._id == client_id);
     if(client != null) {
         response.clientes.remove(client);
         await response.save();
@@ -227,16 +224,16 @@ const getServicesFuturesOfClient = async (req, res) => {
 }
 
 //LOGIN CLIENT
-const loginClient = async (req, res) => {
+ const loginClient = async (req, res) => {
     //const {user_id} = req.user;
     const {id} = req.params;
     const {username, password} = req.body;
     const response = await User.findById(id);
     //onsole.log(response);
-     const client = response.clientes.find(client => client.dni == username && client.password == password || client.username == username && client.password == password);
+     const client = response.clientes.find(client => client.email == username && client.password == password || client.username == username && client.password == password);
      //console.log(client);
-     if(client != null) res.status(200).json({message: "Cliente encontrado", client: client});
-    else res.status(404).json({message: "No hay cliente con ese username"});
+    if(client != null) res.status(200).json({message: "Cliente encontrado", client: client});
+    else res.status(404).json({message: "Datos ingresados Incorrectos"});
 }
 
 const updateUsernamePassword = async (req, res) => {
