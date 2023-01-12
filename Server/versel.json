@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "builds":[{
+    "build":[{
         "src": "public/index.js",
         "use": "@versel/node"
     }],
