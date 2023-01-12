@@ -2,10 +2,10 @@
     "version": 2,
     "build":[{
         "src": "public/index.js",
-        "use": "@versel/node"
+        "use": "@vercel/node"
     }],
     "routes": [{
         "src": "/(.*)",
-        "dest": "/public/index.js"
+        "dest": "public/index.js"
     }]
 }
