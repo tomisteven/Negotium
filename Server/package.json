@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --exec npx babel-node src/index.js",
-    "start": "node dist/index.js",
-    "clean": "rm -rf dist/",
-    "build": "npm run clean && mkdir dist && babel src -s -d dist"
+    "start": "node public/index.js",
+    "clean": "rm -rf public/",
+    "build": "npm run clean && mkdir public && babel src -s -d public"
   },
   "keywords": [],
   "author": "",
