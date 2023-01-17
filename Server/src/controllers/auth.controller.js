@@ -15,7 +15,7 @@ const register = async (req, res) => {
         membresia: false
     });
 
-    if(req.files.avatar){
+    /* if(req.files.avatar){
         //const imagePath = getFiles(req.files.avatar);
         await cloudinary.v2.uploader.upload(req.files.avatar.path, {public_id:email}, (err, resultado)=>{
             console.log(resultado);
@@ -25,7 +25,7 @@ const register = async (req, res) => {
             });
 
         })
-    }
+    } */
     const users = await User.find();
     const emailExist = users.some(user => user.email === email);
 

@@ -13,7 +13,7 @@ const md_upload = multipart({uploadDir: "./src/uploads/avatar"});
 
 
 //rutas de la api
-router.post("/register", [md_upload, configCloudinary] ,register);
+router.post("/register" ,register);
 router.post("/login", login);
 router.post("/refresh_access_token", refreshToken);
 
