@@ -8,8 +8,10 @@ const createPdf = async (req, res) => {
     const {nombre, servicio, fecha} = req.body;
     const response = await User.findById(user_id);
     const pdfs = response.pdfs;
-        if(req.files){
+    //console.log(req);
+         if(req.files){
             cloudinary.v2.uploader.upload(req.files.url.path, { public_id: nombre }, function(error, result) {
+                console.log(result);
                 const newPdf = {
                     nombre: nombre,
                     servicio : servicio,

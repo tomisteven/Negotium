@@ -68,9 +68,10 @@ const createPublicacionAndImage = async(req, res) => {
     }
     if(req.files.imagen){
         const local = getFiles(req.files.imagen);
-        cloudinary.v2.uploader.upload(req.files.imagen.path, { public_id: titulo }, function(error, result) {
+        console.log(local);
+         cloudinary.v2.uploader.upload(req.files.imagen.path, { public_id: titulo }, function(error, result) {
             if(result){
-                //console.log(result);
+                console.log(local);
                 newPublicacion.localUrl = local;
                 newPublicacion.imagen = result.url;
                 user.publicaciones.push(newPublicacion);
@@ -84,7 +85,7 @@ const createPublicacionAndImage = async(req, res) => {
                                 return i.localUrl == local;
                             })
                             const url = news.localUrl;
-                            const path = `./uploads/${url}`;
+                            const path = `./src/uploads/${url}`;
                             fs.unlink(path, (err) => {
                                 if(err){
                                     console.log(err)

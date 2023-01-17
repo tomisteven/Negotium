@@ -1,8 +1,8 @@
 export const getFiles = (file, nombre) => {
     const filePath = file.path;
-    const fileSplit = filePath.split("\\");
-    const fileComplete = fileSplit[1] + "/"+ fileSplit[2];
-
+     const fileSplit = filePath.split("\\");
+    const fileComplete = fileSplit[2] + "/"+ fileSplit[3];
+    console.log(fileComplete);
     return fileComplete;
 }
 

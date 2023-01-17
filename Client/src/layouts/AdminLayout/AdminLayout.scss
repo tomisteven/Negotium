@@ -1,0 +1,49 @@
+@import "../../scss/index.scss";
+
+$widthLeftMenu: 230px;
+
+.admin-layout{
+    display: flex;
+    min-height: 100vh;
+    max-height: 100vh;
+    background-color: $background-grey;
+    color: white;
+
+    &__left{
+        width: $widthLeftMenu;
+        background-color: $background-dark;
+        overflow: auto;
+    }
+
+    .logo{
+        margin-top: -35px;
+        margin-bottom: -40px;
+        height: 200px;
+        width: 100%;
+        //margin: 10px 0;
+    }
+
+
+    &__right{
+        width: calc(100% - #{$widthLeftMenu}); //100% - 200px
+
+
+        &-header{
+            background-color: $background-dark;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            //padding: 0 10px;
+        }
+
+        &-content{
+            position: relative;
+            margin: 20px;
+
+        }
+
+
+
+    }
+}

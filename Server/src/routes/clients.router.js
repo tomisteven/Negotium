@@ -5,7 +5,7 @@ import { asureAuth, tokenClient } from "../middlewares/authenticated";
 import multipart from "connect-multiparty";
 
 
-const md_upload = multipart({uploadDir: "./uploads/posts"});
+const md_upload = multipart({uploadDir: "./src/uploads/posts"});
 const router = Router();
 
 

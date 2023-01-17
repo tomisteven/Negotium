@@ -4,9 +4,9 @@ import multipart from "connect-multiparty";
 import { asureAuth } from "../middlewares/authenticated";
 import cloudinaryConfig from "../utils/cludinary";
 
-const multipartMiddleware = multipart({ uploadDir: "./uploads/news" });
 
 const router = Router();
+const multipartMiddleware = multipart({ uploadDir: "./src/uploads/news" });
 
 
 router.post('/create',[ cloudinaryConfig, asureAuth, multipartMiddleware], testCloudinary)

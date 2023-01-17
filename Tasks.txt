@@ -1,0 +1,9 @@
+//Client
+    *Separar en componentes la home ++
+    *verificar carpetas para organizarlas
+
+
+
+
+
+//Server
