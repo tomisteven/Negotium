@@ -33,6 +33,8 @@ export function RegisterForm(props) {
     <Form className="register-form" onSubmit={formik.handleSubmit}>
 
         <Input className='register-form__input' type="email" name="email" placeholder="Correo Electronico" onChange={formik.handleChange} value={formik.values.email} error={formik.errors.email} />
+        <Input className='register-form__input' type="name" name="name" placeholder="Nombre" onChange={formik.handleChange} value={formik.values.name} error={formik.errors.name} />
+        <Input className='register-form__input' type="name" name="lastname" placeholder="Apellido" onChange={formik.handleChange} value={formik.values.lastname} error={formik.errors.lastname} />
         {
             formik.errors.email && <span className="register-form__errorMensaje">{formik.errors.email}</span>
         }

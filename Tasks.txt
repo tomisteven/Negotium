@@ -1,6 +1,8 @@
 //Client
     *Separar en componentes la home ++
-    *verificar carpetas para organizarlas
+    *verificar carpetas para organizarlas ++
+
+    ** Terminar Componentes de la home
 
 
 

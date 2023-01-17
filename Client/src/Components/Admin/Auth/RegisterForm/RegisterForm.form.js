@@ -6,7 +6,9 @@ export function initialValues() {
     email: "",
     password: "",
     repeatPassword: "",
-    privacyPolicy: false
+    privacyPolicy: false,
+    name: "",
+    lastname: "",
   };
 }
 
@@ -19,6 +21,8 @@ export function validationSchema() {
     .required("El email es obligatorio"),
     password: Yup.string()
     .required("El password es obligatorio"),
+    name: Yup.string().required("El nombre es obligatorio"),
+    lastname: Yup.string().required("El apellido es obligatorio"),
     repeatPassword: Yup.string()
     .required("El password es obligatorio")
     .oneOf([Yup.ref("password")], "Las contraseñas no son iguales"), //compara el valor de repeatPassword
