@@ -5,11 +5,16 @@ import { initialValues, validationSchema} from "./LoginForm.form"
 import { Auth } from '../../../../api'
 import {useAuth} from "../../../../hooks"
 import "./loginForm.css"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const authController = new Auth();
 
 export function LoginForm() {
-    //const [error, setError] = React.useState("");
+
+
+
     const {login} = useAuth(); //obtenemos la funcion de login del contexto de autenticacion
 
     const formik = useFormik({
@@ -20,8 +25,15 @@ export function LoginForm() {
             try {
                 //traemos el token de la api
                 const response = await authController.loginForm(formData);
-                //console.log(response.accessToken);
+                if(!response) {
+                    toast("Contraseña o email incorrectos", {
+                        position: toast.POSITION.TOP_RIGHT,
+                        theme: "dark"
+                    });
+                }
+                console.log(response);
                 login(response.accessToken); //logueamos al usuario
+
                 authController.setAccessToken(response.accessToken); //guardamos el token en el localstorage
                 authController.setRefreshToken(response.refreshToken); //guardamos el token en el localstorage
 
@@ -31,8 +43,8 @@ export function LoginForm() {
         }
     })
 
-
   return (
+    <>
     <Form onSubmit={formik.handleSubmit}>
         <Form.Input
             type="email"
@@ -51,7 +63,9 @@ export function LoginForm() {
             error={formik.errors.password}
         />
 
-        <Form.Button  color='instagram' fluid loading={formik.isSubmitting} type="submit">Login</Form.Button>
+        <Form.Button   color='instagram' fluid loading={formik.isSubmitting} type="submit">Login</Form.Button>
     </Form>
+    <ToastContainer />
+    </>
   )
 }

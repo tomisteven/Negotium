@@ -14,3 +14,4 @@ export const CLOUDINARY_NAME = "ds5uizeqg"
 
 //Url
 export const URL_SERVER = "http://localhost:4020"
+export const authTom = "tok_01050608"

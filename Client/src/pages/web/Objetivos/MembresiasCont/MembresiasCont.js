@@ -1,6 +1,8 @@
 import React from 'react'
 import './membresiasCont.css'
 import MembresiaItem from './MembresiaItem/MembresiaItem'
+import MarginButton from '../MarginTop/MarginButton'
+
 
 export default function MembresiasCont() {
 
@@ -53,15 +55,21 @@ export default function MembresiasCont() {
         }]
     }
 
+    const gradientFree = 'linear-gradient(to right, #F7C1B0, #FF7F09)';
+    const gradientPremium = 'linear-gradient(to left, #A1FF67, #1E7958)';
+    const gradientStandart = 'linear-gradient(to right, #ffae00, #e5df2d)';
 
 
   return (
+    <>
     <div className='membresias-cont'>
       <div className="membresia-cont">
-        <MembresiaItem titulo="Free" items={items.free} color={"#FF9472"} />
-        <MembresiaItem titulo="Standar" items={items.standar} color={"#5EBB5F"} />
-        <MembresiaItem titulo="Premmium" items={items.premmium} color={"#BAA015"} />
+        <MembresiaItem titulo="Free" items={items.free} color={gradientFree} />
+        <MembresiaItem titulo="Standar" items={items.standar} color={gradientStandart} />
+        <MembresiaItem titulo="Premmium" items={items.premmium} color={gradientPremium} />
       </div>
     </div>
+      <MarginButton height={"50px"} mbutton={"30px"} />
+      </>
   )
 }

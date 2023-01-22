@@ -6,6 +6,8 @@ import recordatoriosRoutes from "./routes/recordatorios.router";
 import servicesRoutes from "./routes/services.router";
 import pdfRoutes from "./routes/pdf.router";
 import publicacionesRoutes from "./routes/publicaciones.router";
+import supportMessages from "./routes/supportMessages.router";
+
 import bodyParser from "body-parser"
 import cors from "cors";
 import dotenv from "dotenv";
@@ -33,6 +35,7 @@ app.use(`/recordatorios`, recordatoriosRoutes); //rutas de recordatorios de clie
 app.use("/services", servicesRoutes)
 app.use("/files", pdfRoutes)
 app.use("/news", publicacionesRoutes)
+app.use("/support/messages", supportMessages)
 
 
 module.exports = app;

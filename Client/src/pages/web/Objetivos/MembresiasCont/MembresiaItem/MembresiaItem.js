@@ -4,11 +4,11 @@ import { Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 export default function MembresiaItem({titulo, color, items}) {
-
+    
 
   return (
 
-        <div className="membresia-item" style={{backgroundColor : color}}>
+        <div className="membresia-item" style={{background : color, }}>
             <div className='membresia-title'>
                 <h2 className='m-title'>{titulo}</h2>
             </div>

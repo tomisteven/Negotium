@@ -13,23 +13,22 @@ export function HeaderAndItems() {
           <img className="logo" src={logo} alt="" />
         </div>
         <ul className="header-ul-items">
-        <Link to="/">
+          <Link to="/">
             <h4 className="header-item-name">Home</h4>
           </Link>
-          <Link to="/objetivos">
-            <h4 className="header-item-name">Objetivo</h4>
-          </Link>
-          <Link to="/courses">
-            <h4 className="header-item-name">Nosotros</h4>
-          </Link>
-          <Link to="/courses">
+          <Link to="/funciones">
             <h4 className="header-item-name">Funciones</h4>
           </Link>
-          <Link to="/courses">
+          <Link to="/objetivos">
+            <h4 className="header-item-name">Planes</h4>
+          </Link>
+          <Link to="/contacto">
             <h4 className="header-item-name">Contacto</h4>
           </Link>
+
+
           <Link to="/admin">
-            <Button color="white">Empezar</Button>
+            <Button>Empezar</Button>
           </Link>
         </ul>
       </div>

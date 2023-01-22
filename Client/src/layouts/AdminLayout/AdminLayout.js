@@ -4,7 +4,9 @@ import "./AdminLayout.scss"
 import { AdminMenu } from '../../Components/Admin/AdminLayout';
 import { useAuth } from '../../hooks/useAuth';
 import { Logout } from '../../Components/Admin/AdminLayout/Logout';
+import { AdminProfile } from '../../Components/Admin/AdminLayout/AdminProfile/AdminProfile';
 
+import Logo from "../../assets/Negotium Assets/logoN.png"
 
 export function AdminLayout(props) {
   const [loading, setLoading] = useState(false);
@@ -17,12 +19,13 @@ export function AdminLayout(props) {
   return (
     <div className='admin-layout'>
       <div className='admin-layout__left'>
-        <Icon.LogoMio className='logo'/>
+        <img className='logo' src={Logo} alt='logo'/>
         <AdminMenu/> {/* contiene la barra lateral */}
+        <Logout logout={logout}/>
       </div>
       <div className='admin-layout__right'>
         <div className="admin-layout__right-header">
-          <Logout logout={logout}/>
+          <AdminProfile />
         </div>
         <div className='admin-layout__right-content'>
           {children}

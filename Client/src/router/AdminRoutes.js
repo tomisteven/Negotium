@@ -1,7 +1,7 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 //import {map} from "lodash"
-import {Auth, Users, Blog, Courses, Menu, Newsletter} from "../pages/admin"
+import {Auth, Users, Courses, Menu, Newsletter} from "../pages/admin"
 import {AdminLayout} from "../layouts"
 import {useAuth} from "../hooks"
 
@@ -29,13 +29,11 @@ export function AdminRoutes() {
             ) :
             (
                 <>
-                {["/admin", "/admin/blog"].map((path, index) => (
-                    <Route key={index} path={path} element={loadLayout(AdminLayout, Blog)} />
-                ))}
-                <Route path="/admin/users" element={loadLayout(AdminLayout, Users)} />
-                <Route path="/admin/courses" element={loadLayout(AdminLayout, Courses)} />
-                <Route path="/admin/menu" element={loadLayout(AdminLayout, Menu)} />
-                <Route path="/admin/newsletter" element={loadLayout(AdminLayout, Newsletter)} />
+                <Route path="/admin/clients" element={loadLayout(AdminLayout, Users)} />
+                <Route path="/admin/dashboard" element={loadLayout(AdminLayout, Courses)} />
+                <Route path="/admin/services" element={loadLayout(AdminLayout, Menu)} />
+                <Route path="/admin/alerts" element={loadLayout(AdminLayout, Newsletter)} />
+                <Route path="/admin/newsletters" element={loadLayout(AdminLayout, Newsletter)} />
                 </>
             )
         }

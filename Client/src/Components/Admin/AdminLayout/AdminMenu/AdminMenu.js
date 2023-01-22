@@ -1,18 +1,27 @@
 //aca es un componente que se renderiza en el adminLayout
 import React from "react";
 import { Menu, Icon } from "semantic-ui-react";
-import "./AdminMenu.scss";
+import "./AdminMenu.css";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../../../../hooks/useAuth";
+
+
+import client_img from "../../../../assets/Negotium Assets/client.png"
+import panel_img from "../../../../assets/Negotium Assets/homa.png"
+import box_img from "../../../../assets/Negotium Assets/box.png"
+import folder_img from "../../../../assets/Negotium Assets/folder.png"
+import recordatorios_img from "../../../../assets/Negotium Assets/recordatorios2.png"
+import proveedor_img from "../../../../assets/Negotium Assets/proveedor.png"
+import configuracion_img from "../../../../assets/Negotium Assets/logout.png"
+
+
 
 export function AdminMenu(props) {
 	//console.log(useAuth());
 	const { pathname } = useLocation();
 
-	const {
-		user: { role },
-	} = useAuth(); //obtengo el rol del usuario logueado
-	const esAdmin = role === "admin"; //si el rol es admin, esAdmin = true
+	const {user: { role } } = useAuth(); //obtengo el rol del usuario logueado
+	const esAdmin = role === "user"; //si el rol es admin, esAdmin = true
 
 	const compareIsActive = (path) => {
 		if (pathname === path) {
@@ -24,49 +33,49 @@ export function AdminMenu(props) {
 	return (
 		<Menu
 			className='admin-menu'
-			vertical
 			icon
 			fluid
-			text>
+			text
+
+			>
 			{esAdmin && (
 				<>
-					<Menu.Item
-						as={Link}
-						to='/admin/menu'
-						active={compareIsActive("/admin/menu")}>
-						<Icon name='bars' />
-						Menu
-					</Menu.Item>
-					<Menu.Item
-						as={Link}
-						to='/admin/users'
-						active={compareIsActive("/admin/users")}>
-						<Icon name='users' />
-						Users
-					</Menu.Item>
-					<Menu.Item
-						as={Link}
-						to='/admin/newsletter'
-						active={compareIsActive("/admin/newsletter")}>
-						<Icon name='mail' />
-						Newsletter
-					</Menu.Item>
+				<div className="items-cont">
+						<img className="items" src={panel_img} alt=""/>
+					</div>
+					<div className="items-cont">
+						<img className="items" src={client_img} alt=""/>
+					</div>
+					<div className="items-cont">
+						<img className="items" src={box_img} alt=""/>
+					</div>
+					<div className="items-cont">
+						<img className="items" src={folder_img} alt=""/>
+					</div>
+					<div className="items-cont">
+						<img className="items" src={recordatorios_img} alt=""/>
+					</div>
+					<div className="items-cont">
+						<img className="items" src={proveedor_img} alt=""/>
+					</div>
+					<div className="items-cont">
+						<img className="items" src={configuracion_img} alt=""/>
+					</div>
+
 				</>
 			)}
-			<Menu.Item
-				as={Link}
-				to='/admin/blog'
-				active={compareIsActive("/admin/blog")}>
-				<Icon name='comment' />
-				Blog
-			</Menu.Item>
-			<Menu.Item
-				as={Link}
-				to='/admin/courses'
-				active={compareIsActive("/admin/courses")}>
-				<Icon name='video' />
-				Cursos
-			</Menu.Item>
+
 		</Menu>
 	);
 }
+
+
+
+/* <Menu.Item
+						className="items"
+						as={Link}
+						to='/admin/newsletter'
+						active={compareIsActive("/admin/newsletter")}>
+						<Icon size="large" className="icon" name='tasks' />
+
+					</Menu.Item> */

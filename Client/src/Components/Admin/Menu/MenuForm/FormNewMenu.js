@@ -25,8 +25,6 @@ export function FormNewMenu(props) {
                     active: formData.active
                 }
 
-
-                //console.log(formData)
                 if(menu){
                     data.path = formData.path
                     await menuController.updateMenu(accesToken, menu._id, data)

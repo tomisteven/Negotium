@@ -1,8 +1,10 @@
 @import "../../scss/index.scss";
 
-$widthLeftMenu: 230px;
+$widthLeftMenu: 70px;
+
 
 .admin-layout{
+
     display: flex;
     min-height: 100vh;
     max-height: 100vh;
@@ -11,16 +13,26 @@ $widthLeftMenu: 230px;
 
     &__left{
         width: $widthLeftMenu;
-        background-color: $background-dark;
+        background-color: #7270D6;
         overflow: auto;
+        height: auto;
+    }
+
+
+
+    .icon{
+        color: white;
+
     }
 
     .logo{
-        margin-top: -35px;
-        margin-bottom: -40px;
-        height: 200px;
+        position: relative;
+        top:0;
+        left: 0;
+        height: 100px;
         width: 100%;
-        //margin: 10px 0;
+        object-fit: cover;
+        margin-bottom: 25px;
     }
 
 
@@ -29,8 +41,8 @@ $widthLeftMenu: 230px;
 
 
         &-header{
-            background-color: $background-dark;
-            height: 50px;
+
+            height: auto;
             display: flex;
             align-items: center;
             justify-content: flex-end;

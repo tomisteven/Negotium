@@ -1,5 +1,6 @@
 import React from 'react'
 import  {HeaderAndItems}  from '../../Components/Client/HeaderAndItems/index.js';
+import Footer from '../../pages/web/Footer/Footer.js';
 import './ClientLayout.css';
 
 export function ClientLayout(props) {
@@ -8,6 +9,7 @@ export function ClientLayout(props) {
     <div className='client-layout'>
         <HeaderAndItems />
          {children}
+         <Footer />
     </div>
   )
 }

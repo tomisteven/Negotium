@@ -1,0 +1,24 @@
+.admin-menu{
+    background-color: antiquewhite;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 65%;
+}
+
+.items{
+    width: 100%;
+    object-fit: cover;
+}
+
+.items-cont{
+    width: 35%;
+    cursor: pointer;
+}
+
+
+
+
+

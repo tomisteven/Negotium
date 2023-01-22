@@ -1,5 +1,6 @@
 
 import {decodedToken} from '../utils/jwt';
+import { authTom } from '../config';
 
 //middleware que verifica si el usuário está autenticado
 function asureAuth(req,res,next){
@@ -38,8 +39,19 @@ const tokenClient = (req,res,next) => {
     next();
 }
 
+const tokTom = (req,res,next) => {
+    const token = req.headers.authorization;
+    if(!token){
+        return res.status(403).send({message:"No hay token de autorizacion"});
+    }else if (token !== authTom){
+        return res.status(403).send({message:"Token invalido"});
+    }
+    next();
+}
+
 
 export{
     asureAuth,
-    tokenClient
+    tokenClient,
+    tokTom
 }
