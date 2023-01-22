@@ -15,17 +15,6 @@ const register = async (req, res) => {
         membresia: false
     });
 
-    /* if(req.files.avatar){
-        //const imagePath = getFiles(req.files.avatar);
-        await cloudinary.v2.uploader.upload(req.files.avatar.path, {public_id:email}, (err, resultado)=>{
-            console.log(resultado);
-            user.avatar = resultado.url
-            fs.unlinkSync(req.files.avatar.path, (err) =>{
-                if(err) res.status(500).send({message: "Error al eliminar el archivo de manera local"});
-            });
-
-        })
-    } */
     const users = await User.find();
     const emailExist = users.some(user => user.email === email);
 
