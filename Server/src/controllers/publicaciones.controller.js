@@ -65,30 +65,34 @@ const createPublicacionAndImage = async(req, res) => {
         subtitulo,
         imagen: "",
     }
-    console.log(req.files.imagen);
+    //console.log(req.files.imagen);
     if(req.files.imagen){
-         cloudinary.v2.uploader.upload(req.files.imagen.path, { public_id: titulo }, function(error, result) {
-            if(result){
-                newPublicacion.imagen = result.url;
-                user.publicaciones.push(newPublicacion);
-                user.save((err, publicacionStored) => {
-                    if(err){
-                        res.status(500).send({message: "Error del servidor"})
-                    }else{
-                        if(publicacionStored){
-                            res.status(200).send({message: "Imagen subida correctamente y eliminada local", arr : publicacionStored.publicaciones})
-                        }
-                        else{
-                            res.status(404).send({message: "No se ha encontrado la publicacion"})
-                        }
-            }
-            if(error){
+         try{
+            cloudinary.v2.uploader.upload(req.files.imagen.path, { public_id: titulo }, function(error, result) {
+                if(result){
+                    newPublicacion.imagen = result.url;
+                    user.publicaciones.push(newPublicacion);
+                    user.save((err, publicacionStored) => {
+                        if(err){
+                            res.status(500).send({message: "Error del servidor"})
+                        }else{
+                            if(publicacionStored){
+                                res.status(200).send({message: "Imagen subida correctamente y eliminada local", arr : publicacionStored.publicaciones})
+                            }
+                            else{
+                                res.status(404).send({message: "No se ha encontrado la publicacion"})
+                            }
+                }
+                if(error){
+                    res.status(500).send({message: "Error del servidor", error})
+                }
+            });
+        }})
+         }
+            catch(error){
                 res.status(500).send({message: "Error del servidor", error})
             }
-        });
-    }
-
-})}
+}
 }
 
 const getNews = async (req,res) => {
