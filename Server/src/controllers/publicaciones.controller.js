@@ -67,12 +67,12 @@ const createPublicacionAndImage = async(req, res) => {
         localUrl: ""
     }
     if(req.files.imagen){
-        const local = getFiles(req.files.imagen);
-        console.log(local);
+        /* const local = getFiles(req.files.imagen);
+        console.log(local); */
          cloudinary.v2.uploader.upload(req.files.imagen.path, { public_id: titulo }, function(error, result) {
             if(result){
-                console.log(local);
-                newPublicacion.localUrl = local;
+                //console.log(local);
+                //newPublicacion.localUrl = local;
                 newPublicacion.imagen = result.url;
                 user.publicaciones.push(newPublicacion);
                 user.save((err, publicacionStored) => {
@@ -80,19 +80,20 @@ const createPublicacionAndImage = async(req, res) => {
                         res.status(500).send({message: "Error del servidor"})
                     }else{
                         if(publicacionStored){
+                            res.status(200).send({message: "Imagen subida correctamente y eliminada local", arr : publicacionStored.publicaciones})
                             //eliminamos del servidor local
-                            const news = user.publicaciones.find((i) => {
+                            /* const news = user.publicaciones.find((i) => {
                                 return i.localUrl == local;
-                            })
-                            const url = news.localUrl;
-                            const path = `./src/uploads/${url}`;
-                            fs.unlink(path, (err) => {
+                            }) */
+                            /* const url = news.localUrl;
+                            const path = `./src/uploads/${url}`; */
+                            /* fs.unlink(path, (err) => {
                                 if(err){
                                     console.log(err)
                                  }else{
-                                     res.status(200).send({message: "Imagen subida correctamente y eliminada local",arr : publicacionStored.publicaciones})
+
                                 }
-                            })
+                            }) */
                             //console.log(news);
                         }
                         else{
