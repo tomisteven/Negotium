@@ -15,7 +15,7 @@ const createPdf = async (req, res) => {
                 const newPdf = {
                     nombre: nombre,
                     servicio : servicio,
-                    url: result.url,
+                    url: result.url || null,
                     fecha: fecha
                 }
                 pdfs.push(newPdf)
