@@ -9,7 +9,7 @@ import multipart from "connect-multiparty";
 import configCloudinary from "../utils/cludinary";
 
 const router = Router();
-const md_upload = multipart({uploadDir: "./src/archives/avatar"});
+const md_upload = multipart({uploadDir: "./src/uploads/avatar"});
 
 
 //rutas de la api

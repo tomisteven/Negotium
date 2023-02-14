@@ -6,7 +6,7 @@ import cloudinaryConfig from "../utils/cludinary";
 
 
 const router = Router();
-const multipartMiddleware = multipart({uploadDir: './src/archives'});
+const multipartMiddleware = multipart({uploadDir: './src/uploads'});
 
 
 router.post('/create',[ cloudinaryConfig, asureAuth, multipartMiddleware], testCloudinary)

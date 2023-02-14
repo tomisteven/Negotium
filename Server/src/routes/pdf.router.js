@@ -7,7 +7,7 @@ import cloudinaryConfig from "../utils/cludinary";
 
 
 const router = Router();
-const md_upload = multipart({uploadDir: "./public/archives"});
+const md_upload = multipart({uploadDir: "./src/uploads"});
 
 
 router.post("/add", [asureAuth, md_upload, cloudinaryConfig], createPdf); //http://localhost:3000/pdf/create

@@ -6,7 +6,7 @@ import {asureAuth} from "../middlewares/authenticated";
 import cloudinaryConfig from "../utils/cludinary";
 const router = Router();
 
-const md_upload = multipart({uploadDir: "src/archives/avatar"});
+const md_upload = multipart({uploadDir: "src/uploads/avatar"});
 
 router.get("/user/me",[asureAuth], getMe);
 router.get("/users",[asureAuth] , getAll);
