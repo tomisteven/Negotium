@@ -1,7 +1,7 @@
 
 .cont-img{
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     flex-direction: row;
     align-items: center;
     width: 90%;

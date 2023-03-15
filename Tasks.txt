@@ -1,11 +1,29 @@
 //Client
-    *Separar en componentes la home ++
-    *verificar carpetas para organizarlas ++
-
-    ** Terminar Componentes de la home
+    ** Crear url de redireccion a servicios
+    ** crear los otros paneles en dashboard
 
 
 
 
 
 //Server
+    ** Agregar funcion que cuente cuantos servicios se usaron en total, cada vez que un cliente solicita uno - LISTO
+    ** Cada vez que agrego un servicio a un cliente se le suma 1 a la cuenta de servicios usados !!
+
+
+
+
+
+    #1 [internal] load build definition from Dockerfile
+#1 sha256:934d53d551d8bb2d9d0dc9c0187dfd5adedef57a5e13f822866c80aaade85e61
+#1 transferring dockerfile: 2.21kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:d450ab371af885d1da393418b51d0984c31855ba2c903fce9d8ea2ae13ec5c56
+
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for ghcr.io/railwayapp/nixpacks:ubuntu-1678147396
+#3 sha256:cc1908c803deaaa82b4a7dac81b881aa77bcc77084b59679e3305396b7d6d91a

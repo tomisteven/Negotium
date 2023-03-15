@@ -1,0 +1,12 @@
+
+.contenedor-servicios{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.contenedor-panel-vertical{
+    width: 25%;
+    height: 500px;
+    background-color: rgb(96, 56, 56);
+}

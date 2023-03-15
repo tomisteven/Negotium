@@ -13,8 +13,6 @@ const authController = new Auth();
 
 export function LoginForm() {
 
-
-
     const {login} = useAuth(); //obtenemos la funcion de login del contexto de autenticacion
 
     const formik = useFormik({
@@ -31,7 +29,7 @@ export function LoginForm() {
                         theme: "dark"
                     });
                 }
-                console.log(response);
+                //console.log(response);
                 login(response.accessToken); //logueamos al usuario
 
                 authController.setAccessToken(response.accessToken); //guardamos el token en el localstorage
@@ -63,7 +61,7 @@ export function LoginForm() {
             error={formik.errors.password}
         />
 
-        <Form.Button   color='instagram' fluid loading={formik.isSubmitting} type="submit">Login</Form.Button>
+        <Form.Button color='instagram' fluid loading={formik.isSubmitting} type="submit">Login</Form.Button>
     </Form>
     <ToastContainer />
     </>

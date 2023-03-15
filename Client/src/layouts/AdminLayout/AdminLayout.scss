@@ -3,11 +3,12 @@
 $widthLeftMenu: 70px;
 
 
+
 .admin-layout{
 
     display: flex;
     min-height: 100vh;
-    max-height: 100vh;
+    max-height: auto;
     background-color: $background-grey;
     color: white;
 
@@ -41,8 +42,7 @@ $widthLeftMenu: 70px;
 
 
         &-header{
-
-            height: auto;
+            height: 90px;
             display: flex;
             align-items: center;
             justify-content: flex-end;
@@ -59,3 +59,4 @@ $widthLeftMenu: 70px;
 
     }
 }
+

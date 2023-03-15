@@ -1,6 +1,6 @@
 .admin-menu{
     background-color: antiquewhite;
-    height: auto;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;

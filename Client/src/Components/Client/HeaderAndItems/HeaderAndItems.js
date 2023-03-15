@@ -27,7 +27,7 @@ export function HeaderAndItems() {
           </Link>
 
 
-          <Link to="/admin">
+          <Link to="/admin/dashboard">
             <Button>Empezar</Button>
           </Link>
         </ul>

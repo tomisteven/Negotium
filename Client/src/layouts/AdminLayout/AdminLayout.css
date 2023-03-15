@@ -1,0 +1,6 @@
+/* responsive */
+ @media screen and (max-width: 1350px) {
+    .admin-layout__left{
+        height: 900px;
+    }
+ }

@@ -1,0 +1,106 @@
+.search-recordatorios{
+    background-color: rgb(221, 221, 221);
+    width: 65%;
+    height: 40px;
+    position: relative;
+    left:6px;
+    top: -80px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: -65px;
+}
+
+.btn-recordatorio{
+    background-color: rgb(207, 207, 207);
+}
+
+.img-add-recordatorio{
+    width: 20px;
+    height: 20px;
+    margin: auto;
+
+}
+.img-alert-recordatorio{
+    width: 37px;
+    height: 37px;
+    margin: auto;
+}
+.input-recordatorio-name{
+    width: 15%;
+    height: 35px;
+    border: none;
+    margin: auto;
+    border-radius: 5px;
+    background-color: rgb(207, 207, 207);
+    padding: 2px;
+    position: relative;
+    right: 15px;
+}
+.input-recordatorio{
+    width: 60%;
+    height: 35px;
+    border: none;
+    margin: auto;
+    border-radius: 5px;
+    background-color: rgb(207, 207, 207);
+    padding: 2px;
+    position: relative;
+    right: 20px;
+}
+.form-recordatorios{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.checkbox-recordatorio{
+    position: relative;
+    right: 20px;
+}
+
+/* responsive */
+
+@media screen and (max-width: 768px){
+    .search-recordatorios{
+        width: 90%;
+        height: 45px;
+        position: relative;
+        left:20px;
+        border-radius: 10px;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .input-recordatorio{
+        width: 75%;
+        height: 35px;
+        border: none;
+        margin: auto;
+        border-radius: 5px;
+        background-color: rgb(207, 207, 207);
+        padding: 2px;
+        position: relative;
+        right: 20px;
+    }
+    .form-recordatorios{
+        width: 90%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+    .checkbox-recordatorio{
+        position: relative;
+        right: 20px;
+    }
+}

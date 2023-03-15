@@ -36,3 +36,34 @@ https://github.com/tomisteven/Negotium.git
                                 }
                             }) */
                             //console.log(news);
+
+
+
+
+
+
+
+
+
+                            //
+                            ,
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  }
+
+
+  <div className='cont-item middle'>
+            {{/* img */}}
+            {/* number */}
+            {/* name */}
+            {/* img  */}
+        </div>
+        <div className='cont-item-bottom'>
+            {{/* img */}}
+            {/* number */}
+            {/* name */}
+            {/* img  */}
+        </div>

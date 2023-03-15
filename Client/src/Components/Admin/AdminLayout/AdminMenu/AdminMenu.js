@@ -40,27 +40,27 @@ export function AdminMenu(props) {
 			>
 			{esAdmin && (
 				<>
-				<div className="items-cont">
+					<Link to={"/admin/dashboard"} className="items-cont">
 						<img className="items" src={panel_img} alt=""/>
-					</div>
-					<div className="items-cont">
+					</Link>
+					<Link to={"/admin/clients"} className="items-cont">
 						<img className="items" src={client_img} alt=""/>
-					</div>
-					<div className="items-cont">
+					</Link>
+					<Link className="items-cont" to={"/admin/services"}>
 						<img className="items" src={box_img} alt=""/>
-					</div>
-					<div className="items-cont">
+					</Link>
+					<Link className="items-cont">
 						<img className="items" src={folder_img} alt=""/>
-					</div>
-					<div className="items-cont">
+					</Link>
+					<Link className="items-cont">
 						<img className="items" src={recordatorios_img} alt=""/>
-					</div>
-					<div className="items-cont">
+					</Link>
+					<Link className="items-cont">
 						<img className="items" src={proveedor_img} alt=""/>
-					</div>
-					<div className="items-cont">
+					</Link>
+					<Link className="items-cont">
 						<img className="items" src={configuracion_img} alt=""/>
-					</div>
+					</Link>
 
 				</>
 			)}
