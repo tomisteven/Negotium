@@ -47,14 +47,14 @@ export function ListClients({clients, avatarM, avatarF, sinclientes, onReload, t
       clients.length > 0 ? (
       <div className='clientes-v2'>
         <Table basic='very' padded celled collapsing>
-          <Table.Header>
+          <Table.Header className='table-header-dashboard'>
             <Table.Row>
-              <Table.HeaderCell>Nombre</Table.HeaderCell>
-              <Table.HeaderCell>Correo</Table.HeaderCell>
-              <Table.HeaderCell>Telefono</Table.HeaderCell>
-              <Table.HeaderCell>Gasto</Table.HeaderCell>
-              <Table.HeaderCell>Deuda</Table.HeaderCell>
-              <Table.HeaderCell>Acciones</Table.HeaderCell>
+              <Table.HeaderCell  className='items-header-table'>Nombre</Table.HeaderCell>
+              <Table.HeaderCell className='items-header-table'>Correo</Table.HeaderCell>
+              <Table.HeaderCell className='items-header-table'>Telefono</Table.HeaderCell>
+              <Table.HeaderCell className='items-header-table'>Gasto</Table.HeaderCell>
+              <Table.HeaderCell className='items-header-table'>Deuda</Table.HeaderCell>
+              <Table.HeaderCell className='items-header-table'>Acciones</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
           <Table.Body>

@@ -3,7 +3,7 @@ import "./countItemsServices.css"
 import { Link } from "react-router-dom"
 
 
-export function CountItemsServices({colors, name, url, cont1, cont2, img, imgUp, imgDown, imgSee, imgAdd}) {
+export function CountItemsServices({colors, name,  cont1, cont2, img, imgUp, imgDown, imgSee, imgAdd, url_}) {
   return (
     <div className='container-cont-items' style={{background: colors}}>
         <div  className='cont-items-header'>
@@ -19,10 +19,10 @@ export function CountItemsServices({colors, name, url, cont1, cont2, img, imgUp,
             <div className='cont-body'>
                 <h4 className='body-acumulacion'>Acciones</h4>
                 <div className='body-acciones'>
-                    <Link className="link-actions" to={"/admin/services"}>
+                    <Link className="link-actions" to={url_}>
                         <img src={imgSee} className="img-up-v2" alt=""/>
                     </Link>
-                    <Link className="link-actions" to={url}>
+                    <Link className="link-actions" to={url_}>
                     <img className="img-up-v2" src={imgAdd} alt=""/>
                     </Link>
                 </div>

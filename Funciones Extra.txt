@@ -1,0 +1,2 @@
+-----> Integración de chat interno: permite que los usuarios puedan comunicarse internamente en la aplicación para coordinar la atención a los clientes. (VIA EMAIL)
+-----> Programación de horarios de personal: incluye una función que permita a los usuarios programar y gestionar los horarios de su personal, para una mejor organización del trabajo.

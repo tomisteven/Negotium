@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function Newsletter() {
+export function Recordatorios() {
   return (
     <div>Newsletter</div>
   )

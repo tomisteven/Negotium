@@ -1,13 +1,104 @@
-.cont-service-item{
-    width: 223px;
-    height: 140px;
-    /* background: linear-gradient(to right, #decaff, #6954f0); */
-    background-color: #25254b;
-    box-shadow: 0px 0px 10px 0px rgb(0, 0, 0);
-    margin: 5px;
-    border-radius: 7px;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Kanit:ital,wght@1,700&family=Oswald&display=swap');
+
+.cont-service-item {
+  width: 310px;
+  height: 120px;
+
+
+  margin-bottom: 10px;
+    margin-right: 7px;
+    margin-left: 7px;
+
+  border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
-.punto{
+
+.cont-img-1 {
+  width: 12%;
+  height: 100%;
+
+}
+.circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  top: 5px;
+  position: relative;
+  left: 5px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cicle-text {
+  font-size: 12px;
+  color: rgb(255, 255, 255);
+  position: relative;
+  text-align: center;
+}
+
+.info {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.cont-info-2 {
+  width: 70%;
+    color: rgba(0, 0, 0, 0.583);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.info-text-nombre {
+  font-family: "Kanit", sans-serif;
+    font-size: 15px;
+    position: relative;
+    top: 12px;
+  letter-spacing: 1px;
+}
+.info-text-precio {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 400;
+    position: relative;
+    top: 14px;
+}
+
+.info-text-clientes {
+}
+
+
+.cont-actions-3{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.btn-deshabilitar{
+    position: relative;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    width: 40px;
+    height: 40px;
+}
+
+
+.cont-progress-bodys-v2 {
+  width: 85%;
+  margin-top: 10px;
+}
+
+/* .punto{
     font-size: 25px;
     color: rgb(255, 255, 255);
     position: relative;
@@ -25,7 +116,15 @@
 
 }
 .name-service{
+    font-size: 13px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    position: relative;
+    top: 5px;
 
+}
+.name-service-v2{
     font-size: 16px;
     font-weight: bold;
     color: rgb(255, 255, 255);
@@ -92,3 +191,4 @@
     width: 40px;
     height: 40px;
 }
+ */

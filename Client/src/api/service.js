@@ -4,6 +4,25 @@ import { ENV } from "../utils";
 export class Services{
     baseApi = ENV.URL;
 
+    async createService(formData, accesToken){
+        try {
+            const url = `${ENV.URL}/services/create`;
+            const params = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `${accesToken}`
+                },
+                body: JSON.stringify(formData)
+            }
+            const response = await fetch(url, params);
+            const result = await response.json();
+            return result;
+        } catch (error) {
+            throw error;
+        }
+    }
+
     async getServices(accesToken){
         try {
             const url = `${ENV.URL}/services`;

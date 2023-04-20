@@ -150,13 +150,14 @@ export function Clients() {
   };
 
   //abrir modal y ver servicio
-  const viewModalService = (client) => {
+  const viewModalService = (client, future) => {
+    setFuture(future);
     setOpenModalServicio(true);
     setModalClient(client);
   };
 
   //abrir modal y ver cliente
-  const viewClientInModal = (client) => {
+  const viewClientInModal = (client, future) => {
     setOpenModalClient(true);
     setModalClient(client);
     setServicesOfClient(client.serviciosadquiridos);
@@ -326,6 +327,7 @@ export function Clients() {
             avatarM={avatarM}
             viewModalAnularDeuda={viewModalAnularDeuda}
             changeState={changeState}
+            setFuture={setFuture}
           />
         </div>
 

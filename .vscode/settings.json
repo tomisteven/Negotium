@@ -1,0 +1,9 @@
+{
+    "html-css-class-completion.CSSLanguages": [
+        "css",
+        "sass",
+        "scss"
+    ],
+    "tailwindCSS.codeActions": false,
+    "less.completion.completePropertyWithSemicolon": true
+}

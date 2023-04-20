@@ -280,6 +280,23 @@ export class Client {
         }
     }
 
-
+    async getAllServices(accesToken) {
+        try {
+            const url = `${ENV.URL}/client/all/services`;
+            const params = {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `${accesToken}`
+                }
+            }
+            const response = await fetch(url, params);
+            const result = await response.json();
+            return result;
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
 
 }

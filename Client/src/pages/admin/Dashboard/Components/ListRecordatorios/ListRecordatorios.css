@@ -2,7 +2,7 @@
 
 .text-no-recordatorios{
     font-size: 19px;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     position: relative;
     top: 60px;
     text-align: center;
@@ -28,9 +28,9 @@
 
 
 .recordatorios-v2{
-    width: 40%;
+    width: 38%;
     height: 500px;
-    background: linear-gradient(360deg, rgba(140, 140, 140, 0.137) 0%, rgb(159, 79, 221) 100%);
+    background: linear-gradient(360deg, rgba(140, 140, 140, 0.137) 0%, rgba(0, 0, 0, 0.156) 100%);
     border-radius: 10px;
     overflow: auto;
     overflow-x: hidden;
@@ -99,6 +99,7 @@
 .text-header-recordatorios{
     font-size: 14px;
     margin: 5px;
+    color: #000;
 }
 
 /* recordatorios */
@@ -132,7 +133,7 @@
     border-radius: 10px;
     background-color: rgba(0, 0, 0, 0.094);
 }
-.recordatorio-btn{}
+
 .img-item{
     width: 8%;
     margin: 5px;

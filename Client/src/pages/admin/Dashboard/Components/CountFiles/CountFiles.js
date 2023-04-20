@@ -13,7 +13,7 @@ export function CountFiles({colors, img_files, name, up_file, view_files, clickM
         <Link>
           <img  className='img-files' src={up_file} alt=""/>
         </Link>
-        <Link>
+        <Link to={"/admin/files"}>
           <img className='img-files' src={view_files} alt=""/>
         </Link>
       </div>

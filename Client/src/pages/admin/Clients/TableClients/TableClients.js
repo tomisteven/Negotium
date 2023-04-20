@@ -19,6 +19,7 @@ export default function TableClients({
   viewModalAnularDeuda,
   editCreateClient,
   changeState,
+  setFuture
 }) {
 
   const { accesToken } = useAuth();
@@ -105,7 +106,7 @@ export default function TableClients({
                   </Button>
                   <Button
                     onClick={() => {
-                      viewModalService(client);
+                      viewModalService(client , false);
                     }}
                     size="mini"
                     color="orange"
@@ -115,7 +116,7 @@ export default function TableClients({
                   </Button>
                   <Button
                     onClick={() => {
-                      viewModalService(client);
+                      viewModalService(client, true);
                     }}
                     size="mini"
                     color="instagram"
@@ -142,6 +143,7 @@ export default function TableClients({
                   >
                     Eliminar
                   </Button>
+                  <Button icon="print" size="mini" color="blue" />
                 </Table.Cell>
                 <Table.Cell>
                   <Image
@@ -195,7 +197,7 @@ export default function TableClients({
                   </Button>
                   <Button
                     onClick={() => {
-                      viewModalService(client);
+                      viewModalService(client, false);
                     }}
                     size="mini"
                     color="orange"
@@ -205,7 +207,7 @@ export default function TableClients({
                   </Button>
                   <Button
                     onClick={() => {
-                      viewModalService(client);
+                      viewModalService(client, true);
                     }}
                     size="mini"
                     color="instagram"
@@ -243,6 +245,11 @@ export default function TableClients({
                   >
                     Eliminar
                   </Button>
+                  <Button icon="whatsapp" size="mini" color="green"  onClick={
+                    () => {
+                      window.open(`https://wa.me/54${client.telefono}`)
+                    }
+                  }/>
                 </Table.Cell>
                 <Table.Cell>
                   <Image

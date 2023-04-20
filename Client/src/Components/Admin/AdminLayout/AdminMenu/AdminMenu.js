@@ -41,25 +41,28 @@ export function AdminMenu(props) {
 			{esAdmin && (
 				<>
 					<Link to={"/admin/dashboard"} className="items-cont">
-						<img className="items" src={panel_img} alt=""/>
+					<Icon name="home" size="large" />
 					</Link>
 					<Link to={"/admin/clients"} className="items-cont">
-						<img className="items" src={client_img} alt=""/>
+					<Icon name="users" size="large" />
+					</Link>
+					<Link to={"/admin/calendar"} className="items-cont">
+						<Icon name="calendar alternate outline" size="large" />
 					</Link>
 					<Link className="items-cont" to={"/admin/services"}>
-						<img className="items" src={box_img} alt=""/>
+					<Icon name="shopping cart" size="large" />
 					</Link>
-					<Link className="items-cont">
-						<img className="items" src={folder_img} alt=""/>
+					<Link className="items-cont" to={"/admin/files"}>
+					<Icon name="file alternate" size="large" />
 					</Link>
-					<Link className="items-cont">
-						<img className="items" src={recordatorios_img} alt=""/>
+					<Link className="items-cont" to={"/admin/recordatorios"}>
+					<Icon name="bell" size="large" />
 					</Link>
 					<Link className="items-cont">
 						<img className="items" src={proveedor_img} alt=""/>
 					</Link>
 					<Link className="items-cont">
-						<img className="items" src={configuracion_img} alt=""/>
+					<Icon name="configure" size="large" />
 					</Link>
 
 				</>

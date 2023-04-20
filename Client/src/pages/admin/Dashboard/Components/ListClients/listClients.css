@@ -1,5 +1,8 @@
+
+
+
 .clientes-v2{
-    width: 59%;
+    width: 61%;
     height: 500px;
     background-color: rgba(0, 0, 0, 0.055);
     padding: 15px;
@@ -30,7 +33,7 @@
 }
 
 .name-item-list{
-    font-size: 15px;
+    font-size: 13px;
     font-weight: bold;
     margin-left: 2px;
 }

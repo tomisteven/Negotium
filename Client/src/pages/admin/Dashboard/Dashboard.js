@@ -37,6 +37,11 @@ export function Dashboard() {
   const [loading, setLoading] = React.useState(false);
   const [userActive, setUserActive] = React.useState(user);
 
+  if (!user) {
+    console.log("no hay usuario, redireccionando a login");
+    window.location.href = "/auth";
+  }
+
   const onReload = () => {
     setReload(!reload);
   };
@@ -46,11 +51,10 @@ export function Dashboard() {
       setLoading(true);
       const response = await userController.getMe(accesToken);
       setUserActive(response);
+      makeAColor();
       setLoading(false);
     })();
   }, [reload]);
-
-
 
   if (!userActive || loading) {
     return (
@@ -62,11 +66,54 @@ export function Dashboard() {
     );
   }
 
+  const makeAColor = () => {
+    const colors = [
+      "#AED9E0",
+      "#D4E4C1",
+      "#E8D6B9",
+      "#B9E8D6",
+      "#D9C9E0",
+      "#C1D9E4",
+      "#E0AEC2",
+      "#C2E0AE",
+    ];
+
+    while (userActive.servicios.length > colors.length) {
+      let red, green, blue;
+      do {
+        // Genera un valor aleatorio para cada componente RGB
+        red = Math.floor(Math.random() * 256);
+        green = Math.floor(Math.random() * 256);
+        blue = Math.floor(Math.random() * 256);
+
+        // Verifica que el color no sea oscuro o gris
+      } while (red < 102 || green < 91 || blue < 127);
+
+      // Calcula el promedio de los componentes RGB para obtener un tono pastel
+      const averageColor = (red + green + blue) / 3;
+
+      // Calcula el valor de desplazamiento para aclarar el color
+      const offset = Math.floor(Math.random() * 51) + 204;
+
+      // Aplica el valor de desplazamiento a cada componente RGB
+      red = Math.floor((red + offset + averageColor) / 3);
+      green = Math.floor((green + offset + averageColor) / 3);
+      blue = Math.floor((blue + offset + averageColor) / 3);
+
+
+      colors.push(
+        `#${red.toString(16)}${green.toString(16)}${blue.toString(16)}`
+      );
+    }
+    return colors;
+  };
+
   return (
     <>
       <SearchRecordatorios onReload={onReload} />
       <div className="dashboard-panel">
         <CountItemsServices
+          url_="/admin/services"
           imgUp={img_up}
           cont2={userActive.recaudado}
           cont1={userActive.servicios.length}
@@ -78,6 +125,7 @@ export function Dashboard() {
           name="Services"
         />
         <CountClientProveedor
+          url_={"/admin/clients"}
           img_add={img_add}
           cont1={userActive.clientes.length}
           img_down={img_down}
@@ -129,7 +177,15 @@ export function Dashboard() {
       <div className="dashboard-services">
         {user.servicios.length > 0 ? (
           userActive.servicios.map((item, index) => {
-            return <ServiceItem onReload={onReload} key={index} item={item} />;
+            return (
+              <ServiceItem
+                onReload={onReload}
+                key={index}
+                item={item}
+                number={index}
+                backgroundProps={makeAColor()}
+              />
+            );
           })
         ) : (
           <div className="cont-sin-servicios">
