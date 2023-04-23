@@ -5,7 +5,7 @@ $widthLeftMenu: 70px;
 
 
 .admin-layout{
-
+    overflow-x: hidden;
     display: flex;
     min-height: 100vh;
     max-height: auto;
@@ -23,7 +23,6 @@ $widthLeftMenu: 70px;
 
     .icon{
         color: white;
-
     }
 
     .logo{
@@ -39,7 +38,7 @@ $widthLeftMenu: 70px;
 
     &__right{
         width: calc(100% - #{$widthLeftMenu}); //100% - 200px
-
+        overflow-x: hidden;
 
         &-header{
             height: 90px;
@@ -58,5 +57,23 @@ $widthLeftMenu: 70px;
 
 
     }
+}
+
+@media  (max-width: 560px) {
+    .admin-layout{
+        flex-direction: column;
+        .logo{
+            width: 13%;
+            height: 70px;
+            margin: 20px auto;
+        }
+        &__right{
+            width: 100%;
+        }
+    }
+}
+
+@media only screen and (min-width: 560px) and (max-width: 850px) {
+
 }
 

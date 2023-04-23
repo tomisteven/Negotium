@@ -46,8 +46,8 @@ export function ListClients({clients, avatarM, avatarF, sinclientes, onReload, t
   return (
       clients.length > 0 ? (
       <div className='clientes-v2'>
-        <Table basic='very' padded celled collapsing>
-          <Table.Header className='table-header-dashboard'>
+        <Table basic='very' className='overflow-table' padded celled collapsing>
+          <Table.Header>
             <Table.Row>
               <Table.HeaderCell  className='items-header-table'>Nombre</Table.HeaderCell>
               <Table.HeaderCell className='items-header-table'>Correo</Table.HeaderCell>

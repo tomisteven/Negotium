@@ -277,3 +277,26 @@
     left: 27px;
     border-color: #19AB27;
   }
+
+
+
+  /* responsive */
+
+  @media only screen and (min-width: 320px) and (max-width: 560px){
+    .recordatorios-v2{
+      overflow-x: hidden;
+      width: 98%;
+      height: auto;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .text-header-recordatorios{
+      font-size: 12px;
+    }
+    .img-header-recordatorios{
+      width: 20%;
+    }
+  }

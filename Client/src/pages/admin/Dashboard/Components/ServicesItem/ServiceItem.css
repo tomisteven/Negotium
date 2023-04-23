@@ -70,8 +70,6 @@
     top: 14px;
 }
 
-.info-text-clientes {
-}
 
 
 .cont-actions-3{
@@ -98,97 +96,14 @@
   margin-top: 10px;
 }
 
-/* .punto{
-    font-size: 25px;
-    color: rgb(255, 255, 255);
-    position: relative;
-    top: 3px;
-    right: 5px;
+/* responsive */
+
+@media only screen and (min-width: 320px) and (max-width: 560px){
+.cont-service-item{
+  width: 100%;
+}
 }
 
-.service-nombre{
-    display: flex;
-    justify-content: flex-start;
-    width: 80%;
-    margin: auto;
-    align-items: center;
-    flex-direction: row;
+@media only screen and (min-width: 560px) and (max-width: 850px) {
 
 }
-.name-service{
-    font-size: 13px;
-    font-weight: bold;
-    color: rgb(255, 255, 255);
-    border-radius: 5px;
-    position: relative;
-    top: 5px;
-
-}
-.name-service-v2{
-    font-size: 16px;
-    font-weight: bold;
-    color: rgb(255, 255, 255);
-    border-radius: 5px;
-    position: relative;
-    top: 5px;
-
-}
-.precio-service{
-    color: rgb(255, 255, 255);
-    display: flex;
-    height: 25px;
-    margin-top: 5px;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-}
-.clientes-service{
-    color: rgb(255, 255, 255);
-    display: flex;
-    height: 25px;
-    margin-top: 5px;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.text-precio-1{
-    position: relative;
-    top: 10px;
-    font-size: 12px;
-}
-.text-precio-3{
-    position: relative;
-    top: 10px;
-    right: 5px;
-    font-size: 12px;
-}
-.text-precio-2{
-    position: relative;
-    bottom: 10px;
-    color: rgb(255, 255, 255);
-    font-weight: bold;
-    font-size: 16px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-.actions-service{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: row;
-    margin: auto;
-    position: relative;
-    top: 16px;
-    border-radius: 5px;
-    width: 50%;
-}
-.btn-deshabilitar{
-    position: relative;
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, 0);
-    border: none;
-    width: 40px;
-    height: 40px;
-}
- */

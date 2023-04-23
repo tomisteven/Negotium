@@ -1,6 +1,64 @@
+
+
 /* responsive */
  @media screen and (max-width: 1350px) {
     .admin-layout__left{
         height: 900px;
     }
  }
+
+ .button-burger{
+    display: none;
+ }
+
+
+
+ /* Teléfonos inteligentes con pantallas pequeñas */
+@media only screen and (min-width: 320px) and (max-width: 560px) {
+    /* tus estilos para pantallas pequeñas */
+    .admin-layout{
+      overflow-x: hidden;
+    }
+    .admin-layout__left{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        overflow: hidden;
+    }
+  }
+
+  /* Teléfonos inteligentes con pantallas medianas */
+  @media only screen and (min-width: 560px) and (max-width: 850px) {
+    .admin-layout{
+
+    }
+    .admin-layout__left{
+        width: 70px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+    }
+  }
+
+  /* Tabletas */
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    /* tus estilos para tabletas */
+  }
+
+  /* Monitores de escritorio y portátiles */
+  @media only screen and (min-width: 1024px) and (max-width: 1920px) {
+    /* tus estilos para monitores de escritorio y portátiles */
+  }
+
+  /* Monitores grandes */
+  @media only screen and (min-width: 1920px) {
+    /* tus estilos para monitores grandes */
+  }
+
+

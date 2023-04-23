@@ -66,7 +66,7 @@
 
 /* responsive */
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 568px){
     .search-recordatorios{
         width: 90%;
         height: 45px;
@@ -104,3 +104,46 @@
         right: 20px;
     }
 }
+
+
+@media screen and (max-width: 568px){
+    .search-recordatorios{
+        display: none;
+    }
+}
+/* Teléfonos inteligentes con pantallas pequeñas */
+@media only screen and (min-width: 560px) and (max-width: 850px) {
+    /* tus estilos para pantallas pequeñas */
+
+  }
+
+  /* Teléfonos inteligentes con pantallas medianas */
+  @media only screen and (min-width: 560px) and (max-width: 850px) {
+    /* tus estilos para pantallas medianas */
+    .search-recordatorios{
+        display: none;
+    }
+  }
+
+  /* Tabletas */
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    /* tus estilos para tabletas */
+  }
+
+  /* Monitores de escritorio y portátiles */
+  @media only screen and (min-width: 1024px) and (max-width: 1920px) {
+    /* tus estilos para monitores de escritorio y portátiles */
+    .img-add-recordatorio{
+        width: 15px;
+        height: 15px;
+        margin: auto;
+
+    }
+  }
+
+  /* Monitores grandes */
+  @media only screen and (min-width: 1920px) {
+    /* tus estilos para monitores grandes */
+  }
+
+

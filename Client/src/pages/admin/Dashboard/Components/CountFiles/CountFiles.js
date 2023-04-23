@@ -3,6 +3,13 @@ import "./CountFiles.css"
 import { Link } from "react-router-dom"
 
 export function CountFiles({colors, img_files, name, up_file, view_files, clickModal}) {
+
+
+
+
+
+
+
   return (
     <div className='container-cont-items' style={{background: colors}} >
       <div className="cont-header">

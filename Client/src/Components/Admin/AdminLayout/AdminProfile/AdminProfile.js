@@ -17,7 +17,7 @@ export function AdminProfile() {
 
         <div className='profile-contimg'>
             <img className='img_profile' src={
-                user.avatar ? user.avatar : user_img
+                /* user.avatar ? user.avatar :  */user_img
             } alt='profile'/>
         </div>
     </div>
