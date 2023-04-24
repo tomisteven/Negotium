@@ -46,24 +46,9 @@
 
 
 /* responsive */
-@media screen and (max-width: 1350px) {
-    .dashboard{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 30%;
-        height: 100vh;
-
-    }
-    .dashboard-v2{
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-    }
-}
 
 /* Teléfonos inteligentes con pantallas pequeñas */
-@media only screen and (min-width: 320px) and (max-width: 560px) {
+@media only screen and (min-width: 320px) and (max-width: 480px) {
     /* tus estilos para pantallas pequeñas */
     .dashboard-panel{
         display: flex;
@@ -84,14 +69,28 @@
   /* Tabletas */
   @media only screen and (min-width: 768px) and (max-width: 1024px) {
     /* tus estilos para tabletas */
+    .dashboard-v2{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin: auto;
+    }
   }
 
   /* Monitores de escritorio y portátiles */
-  @media only screen and (min-width: 1024px) and (max-width: 1920px) {
-    /* tus estilos para monitores de escritorio y portátiles */
+  @media only screen and (min-width: 1025px) and (max-width: 1240px) {
+    .dashboard-v2{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+    }
   }
 
+
   /* Monitores grandes */
-  @media only screen and (min-width: 1920px) {
+  @media only screen and (min-width: 1280px) and (max-width: 1400px) {
     /* tus estilos para monitores grandes */
   }

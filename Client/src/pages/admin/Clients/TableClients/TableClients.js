@@ -144,6 +144,7 @@ export default function TableClients({
                     Eliminar
                   </Button>
                   <Button icon="print" size="mini" color="blue" />
+                  <Button icon="whatsapp" size="mini" color="green" />
                 </Table.Cell>
                 <Table.Cell>
                   <Image
@@ -245,6 +246,7 @@ export default function TableClients({
                   >
                     Eliminar
                   </Button>
+                  <Button icon="print" size="mini" color="blue" />
                   <Button icon="whatsapp" size="mini" color="green"  onClick={
                     () => {
                       window.open(`https://wa.me/54${client.telefono}`)

@@ -15,7 +15,7 @@ $widthLeftMenu: 70px;
     &__left{
         width: $widthLeftMenu;
         background-color: #7270D6;
-        overflow: auto;
+        overflow: hidden;
         height: auto;
     }
 

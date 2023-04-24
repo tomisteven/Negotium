@@ -98,12 +98,27 @@
 
 /* responsive */
 
-@media only screen and (min-width: 320px) and (max-width: 560px){
+@media only screen and (min-width: 320px) and (max-width: 480px){
 .cont-service-item{
   width: 100%;
 }
 }
 
-@media only screen and (min-width: 560px) and (max-width: 850px) {
+@media only screen and (min-width: 480px) and (max-width: 768px) {
+.cont-service-item{
+  width: 47%;
+}
+}
 
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+.cont-service-item{
+  width: 47%;
+}
+}
+
+@media only screen and (min-width: 1280px) and (max-width: 1400px) {
+  /* tus estilos para monitores grandes */
+  .cont-service-item{
+    width: 23%;
+  }
 }

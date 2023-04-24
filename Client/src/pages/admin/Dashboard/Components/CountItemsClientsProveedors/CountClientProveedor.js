@@ -1,17 +1,15 @@
 import React from 'react'
 import { Link, useAsyncValue } from "react-router-dom"
 import "./ClientProveedor.css"
+import "../CountServicesItem/responsive-panel.css"
 import { Icon, Progress } from 'semantic-ui-react'
 
-export function CountClientProveedor({colors, name, cont1, img, img_see, cont2, img_up, img_down, img_add, url_}) {
+export function CountClientProveedor({colors, name, cont1, img, img_see, cont2, img_up, img_down, img_add, url_, icon}) {
   return (
     <div className='container-cont-items' style={{background: colors}}>
-      <div className='cont-items-header'>
-            <Icon name='user'/>
-            <h2 className='name-header-client'>{name}</h2>
-            <Link className='link-client' to={url_}>
-              <img src={img_see} className="img-up-v3" alt=""/>
-            </Link>
+      <div  className='cont-items-header'>
+            <Icon name={icon} size='large'/>
+            <h2 className='name-header-v2'>{name}</h2>
         </div>
 
         <div className='cont-number-bodys'>

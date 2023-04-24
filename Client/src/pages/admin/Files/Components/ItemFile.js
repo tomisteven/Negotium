@@ -11,12 +11,14 @@ export default function ItemFile({file, downdoaldFile, deleteFile}) {
                       <p class="cont_header_cont_info_servicio">
                         {file.servicio.toUpperCase()}
                       </p>
-                      <p class="cont_header_cont_info_title">{file.nombre}</p>
+                      <p class="cont_header_cont_info_title" style={
+                        file.nombre.length > 15 ? {fontSize: "12px"} : {}
+                      }>{file.nombre}</p>
                     </div>
                     <div class="cont_header_cont_img">
                       <img
                         class="cont_header_cont_img_img"
-                        src={file.tipo == "IMAGEN" ?  img_icon : pdf_icon }
+                        src={file.tipo == "IMG" ?  img_icon : pdf_icon }
                         alt=""
                       />
                     </div>

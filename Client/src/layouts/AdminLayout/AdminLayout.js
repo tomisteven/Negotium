@@ -13,8 +13,6 @@ export function AdminLayout(props) {
   const { logout } = useAuth();
   const { children } = props;
 
-  const [openBurger, setOpenBurger] = useState(false);
-  console.log(open);
 
   if (loading) return <h1>Loading...</h1>;
 

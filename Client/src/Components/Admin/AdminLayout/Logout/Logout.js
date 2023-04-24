@@ -5,7 +5,7 @@ import "./Logout.css"
 export function Logout({logout}) {
   return (
     <button className='btn-logout' onClick={logout}>
-        <Icon size="black"   name='log out' />
+        <Icon size="big"   name='log out' />
     </button>
   )
 }

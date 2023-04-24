@@ -72,6 +72,12 @@
     .link-client{
         display: none;
     }
+    .name-body{
+        font-size: 12px;
+        position: relative;
+        left: 4px;
+        bottom: 5px;
+    }
 }
 
 /* cont-number-bodys */

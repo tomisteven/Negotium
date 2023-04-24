@@ -133,6 +133,7 @@ export function Dashboard() {
           img_see={img_view}
           img={img_client}
           name="Clientes"
+          icon={"users"}
           colors={"linear-gradient(to right, #9B77D6, #2c0073c6)"}
         />
         <CountClientProveedor
@@ -143,6 +144,7 @@ export function Dashboard() {
           img_see={img_view}
           img={img_client}
           name="Proveedores"
+          icon={"cart"}
           colors={" linear-gradient(to right, #3B6BE7, #5786FF)"}
         />
         <CountFiles
@@ -150,6 +152,7 @@ export function Dashboard() {
           up_file={up_file}
           img_files={img_files}
           name="Archivos"
+          icon={"folder open outline"}
           colors={"linear-gradient(to right, #DD9E70, #ffb37c)"}
         />
       </div>

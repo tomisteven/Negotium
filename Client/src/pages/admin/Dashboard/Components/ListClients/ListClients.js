@@ -51,7 +51,7 @@ export function ListClients({clients, avatarM, avatarF, sinclientes, onReload, t
             <Table.Row>
               <Table.HeaderCell  className='items-header-table'>Nombre</Table.HeaderCell>
               <Table.HeaderCell className='items-header-table'>Correo</Table.HeaderCell>
-              <Table.HeaderCell className='items-header-table'>Telefono</Table.HeaderCell>
+              <Table.HeaderCell className='items-header-table-t'>Telefono</Table.HeaderCell>
               <Table.HeaderCell className='items-header-table'>Gasto</Table.HeaderCell>
               <Table.HeaderCell className='items-header-table'>Deuda</Table.HeaderCell>
               <Table.HeaderCell className='items-header-table'>Acciones</Table.HeaderCell>
@@ -61,15 +61,15 @@ export function ListClients({clients, avatarM, avatarF, sinclientes, onReload, t
             {clients.map((client, index) => (
               <Table.Row key={index}>
                 <Table.Cell>
-                  <Header as='h4' image>
-                    <Image src={client.genero == "Masculino" ? avatarM : avatarF} rounded size='mini' />
+                  <Header className='img-header-client'  as='h4' image>
+                    <Image  src={client.genero == "Masculino" ? avatarM : avatarF} rounded size='mini' />
                     <Header.Content className='name-item-list'>
                       {client.nombre} {client.apellido}
                     </Header.Content>
                   </Header>
                 </Table.Cell>
                 <Table.Cell  className='font-item-list'>{client.email}</Table.Cell>
-                <Table.Cell className='font-item-list'>{client.telefono}</Table.Cell>
+                <Table.Cell className='font-item-list-t'>{client.telefono}</Table.Cell>
                 <Table.Cell className='font-item-list'>${client.gastoTotal}</Table.Cell>
                 <Table.Cell className='font-item-list'>${client.deudaTotal}</Table.Cell>
                 <Table.Cell>

@@ -6,10 +6,9 @@ import { Button, Icon } from "semantic-ui-react";
 import { Dimmer, Loader } from "semantic-ui-react";
 import TitleHeader from "../Clients/Components/Title-head/TitleHeader";
 import img_files from "../../../assets/Negotium Assets/archivo-pdf.png";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 import PanelFiles from "./Components/PanelFiles";
 import ItemFile from "./Components/ItemFile";
-
 
 const filesController = new Files();
 export function Files_c() {
@@ -23,10 +22,7 @@ export function Files_c() {
   const onReload = () => {
     setReload(!reload);
   };
-  const parseFecha = (fecha) => {
-    const date = new Date(fecha);
-    return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
-  };
+
 
   const downdoaldFile = (file) => {
     const url = file; // Obtienes la URL de la imagen del objeto
@@ -67,7 +63,6 @@ export function Files_c() {
       case "Antiguo":
         setLoading(true);
         const antiguo = files.reverse();
-        console.log(antiguo);
         setFilter("ANTIGUOS");
         setFiles(antiguo);
         setLoading(false);
@@ -78,15 +73,15 @@ export function Files_c() {
         });
         setFilter("PDFs");
         setFiles(pdf);
-        console.log(files);
+
         break;
       case "Img":
         const img = user.pdfs.filter((pdf) => {
-          return pdf.tipo == "IMAGEN";
+          return pdf.tipo == "IMG";
         });
         setFilter("IMAGENES");
         setFiles(img);
-        console.log(files);
+
         break;
 
       case "Todos":
@@ -100,28 +95,27 @@ export function Files_c() {
 
   const deleteFile = async (file_id) => {
     Swal.fire({
-      title: '¿Estas seguro?',
+      title: "¿Estas seguro?",
       text: "No podras revertir esta accion",
-      icon: 'warning',
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Si, eliminar!'
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, eliminar!",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        const response = await filesController.deleteFile(accesToken, file_id)
-        if(response){
-          onReload()
+        const response = await filesController.deleteFile(accesToken, file_id);
+        if (response) {
+          onReload();
           toast("Archivo eliminado correctamente", {
-          position: toast.POSITION.TOP_RIGHT,
-          type: "success",
+            position: toast.POSITION.TOP_RIGHT,
+            type: "success",
             theme: "colored",
           });
         }
       }
-    })
-  }
-
+    });
+  };
 
   return (
     <>
@@ -131,20 +125,25 @@ export function Files_c() {
         title="Lista de servicios"
       />
       <div className="conteiner-files">
-        <PanelFiles files={files} findFile={findFile} />
+        <PanelFiles files={files} findFile={findFile} onReload={onReload} deleteFile={deleteFile} downdoaldFile={downdoaldFile}  />
         <div class="cont-files-list-files">
-          {
-            files.length > 0 ? files.map((file, index) => {
+          {files.length > 0 ? (
+            files.map((file, index) => {
               return (
-                <ItemFile key={index} file={file} downdoaldFile={downdoaldFile} deleteFile={deleteFile} />
+                <ItemFile
+                  key={index}
+                  file={file}
+                  downdoaldFile={downdoaldFile}
+                  deleteFile={deleteFile}
+                />
               );
             })
-            :
+          ) : (
             <div className="cont-no-files">
               <Icon name="file outline" size="huge" color="grey" />
               <h3 className="cont-no-files-h3">No hay Archivos guardados</h3>
             </div>
-          }
+          )}
         </div>
       </div>
     </>
