@@ -51,7 +51,7 @@ export default function ModalNewFile({ open, setOpen, onReload }) {
       },
     };
 
-    const url = "http://localhost:8080/files/add";
+    const url = "https://apinegotium.up.railway.app/files/add";
 
     try {
       const res = await axios.post(url, formData, config);
